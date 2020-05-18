@@ -1,0 +1,24 @@
+{
+  "name": "coin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyetigran/CoinStats-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyetigran/CoinStats-Clone/issues"
+  },
+  "homepage": "https://github.com/hyetigran/CoinStats-Clone#readme",
+  "dependencies": {
+    "next": "^9.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
