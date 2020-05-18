@@ -1,0 +1,19 @@
+.heroContainer {
+  display: flex;
+  margin: 0 auto;
+  max-width: 60%;
+  justify-content: space-between;
+}
+.heading {
+  text-align: center;
+}
+.heroBigStat {
+  display: flex;
+  flex-direction: column;
+  min-width: 33%;
+}
+
+.heroBigStat .stat {
+  display: flex;
+  justify-content: space-between;
+}

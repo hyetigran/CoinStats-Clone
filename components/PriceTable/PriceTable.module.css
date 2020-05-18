@@ -1,0 +1,8 @@
+.controlContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btnControl {
+  text-transform: uppercase;
+}

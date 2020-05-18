@@ -5,6 +5,13 @@ const Layout = (props) => {
     <div>
       <Navbar />
       {props.children}
+      <style jsx global>{`
+        body {
+          font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue",
+            "Helvetica", "Arial", sans-serif;
+          box-sizing: border-box;
+        }
+      `}</style>
     </div>
   );
 };
