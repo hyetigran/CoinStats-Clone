@@ -1,8 +1,12 @@
 import Layout from "../components/Layout";
+import Hero from "../components/Hero";
+import PriceTable from "../components/PriceTable";
+
 const LivePrices = () => {
   return (
     <Layout>
-      <div>Live Prices</div>
+      <Hero />
+      <PriceTable />
     </Layout>
   );
 };
