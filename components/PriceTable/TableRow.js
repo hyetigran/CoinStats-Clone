@@ -24,6 +24,22 @@ const TableRow = (props) => {
     flex: 0.5,
     margin: "auto",
   };
+  const favHandleChange = () => {
+    //getting coins from local storage or empy array
+    var storedCoins = JSON.parse(localStorage.getItem("coins")) || [];
+    if (!isFav) {
+      //adding id of coin to stored coins
+      storedCoins = [...storedCoins, id];
+    } else {
+      //remove coin from local storage
+      storedCoins = storedCoins.filter((el) => el !== id);
+    }
+    //saving updated stored coins to local storage
+    localStorage.setItem("coins", JSON.stringify(storedCoins));
+    setIsFav(!isFav);
+  };
+  console.log(id, isFav);
+
   return (
     <div
       className={styles.tableRow}
@@ -36,13 +52,13 @@ const TableRow = (props) => {
         <i
           style={iconStyle}
           className="fas fa-star"
-          onClick={() => setIsFav(!isFav)}
+          onClick={() => favHandleChange()}
         ></i>
       ) : (
         <i
           style={iconStyle}
           className="far fa-star"
-          onClick={() => setIsFav(!isFav)}
+          onClick={() => favHandleChange()}
         ></i>
       )}
       <div className={styles.nameCol}>
