@@ -1,0 +1,5 @@
+.mainLayout {
+  background-color: #1d1b1b;
+  display: flex;
+  flex-direction: column;
+}

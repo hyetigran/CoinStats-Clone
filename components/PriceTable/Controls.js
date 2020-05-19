@@ -1,12 +1,18 @@
 import styles from "./PriceTable.module.css";
-
+import ActiveLink from "../ActiveLink";
 const Controls = (props) => {
   return (
-    <div className={styles.controlContainer}>
-      <button className={styles.btnControl}>cryptocurrency</button>
-      <button className={styles.btnControl}>exchanges</button>
-      <button className={styles.btnControl}>favorites</button>
-    </div>
+    <ul className={styles.controlContainer}>
+      <li className={styles.btnControl}>
+        <ActiveLink href="/">cryptocurrency</ActiveLink>
+      </li>
+      <li className={styles.btnControl}>
+        <ActiveLink href="/exchange">exchanges</ActiveLink>
+      </li>
+      <li className={styles.btnControl}>
+        <ActiveLink href="/favorites">favorites</ActiveLink>
+      </li>
+    </ul>
   );
 };
 

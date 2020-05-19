@@ -1,34 +1,86 @@
 .controlContainer {
   display: flex;
   justify-content: flex-start;
+  list-style: none;
+  margin-bottom: 3%;
 }
 
 .btnControl {
   text-transform: uppercase;
 }
+.btnControl a {
+  text-decoration: none;
+  color: #979797;
+}
+.btnControl a:hover {
+  cursor: pointer;
+}
 
 .tableHeading {
   display: flex;
   justify-content: space-between;
+  border-top: 1px solid #8e8c8c;
+  border-bottom: 1px solid #8e8c8c;
+}
+.tableHeading > * {
+  font-size: 1rem;
+  padding-left: 2%;
 }
 .tableHeading p {
   text-transform: uppercase;
+  color: #979797;
+}
+.tableHeading p:last-child {
+  margin-right: 2%;
 }
 
 .tableRow {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #8e8c8c;
+  height: 50px;
+}
+.tableRow:hover {
+  background-color: #252525;
+  cursor: pointer;
+}
+.tableRow > * {
+  padding-left: 2%;
+  font-size: 1rem;
+}
+.tableRow p:last-child {
+  margin-right: 2%;
 }
 
 .nameCol {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 3;
+}
+.nameCol > * {
+  margin-right: 2%;
+}
+.rankCol {
+  flex: 0.5;
+  text-align: center;
+}
+.changeCol,
+.priceCol,
+.pbtcCol,
+.mcapCol,
+.volCol {
+  flex: 2;
+  text-align: end;
 }
 
-.icon {
-  width: 100%;
-  height: 100%;
-}
 .icon img {
   width: 20px;
   height: 20px;
+}
+.clrDown {
+  color: #ff3a31;
+}
+.clrUp {
+  color: #35c858;
 }

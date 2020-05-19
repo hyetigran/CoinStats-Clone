@@ -1,19 +1,43 @@
+.heroSection {
+  display: flex;
+  flex-direction: column;
+}
+
 .heroContainer {
   display: flex;
-  margin: 0 auto;
-  max-width: 60%;
+  margin: 4% auto;
+  max-width: 70%;
+  width: 100%;
   justify-content: space-between;
+  border-top: 1px solid #8e8c8c;
+  border-bottom: 1px solid #8e8c8c;
+  padding: 0 3%;
 }
+
 .heading {
   text-align: center;
 }
 .heroBigStat {
   display: flex;
   flex-direction: column;
-  min-width: 33%;
+  min-width: 25%;
+  margin: 3% auto;
+  padding: 0 2%;
 }
 
 .heroBigStat .stat {
   display: flex;
-  justify-content: space-between;
+}
+.heroBigStat .stat p {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  margin-right: 5%;
+}
+
+.clrDown {
+  color: #ff3a31;
+}
+.clrUp {
+  color: #35c858;
 }

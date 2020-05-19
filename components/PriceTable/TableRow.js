@@ -14,23 +14,25 @@ const TableRow = (props) => {
     marketCap,
     volume,
   } = props.coin;
-
+  console.log(typeof priceChange1d);
+  let changeColor = priceChange1d < 1 ? styles.clrDown : styles.clrUp;
   return (
     <div className={styles.tableRow}>
-      <p>{rank}</p>
+      <p className={styles.rankCol}>{rank}</p>
       <div className={styles.nameCol}>
         <div className={styles.icon}>
           <img src={icon} />
         </div>
         <p>{name}</p>
-        <span>{symbol}</span>
+        <span> • {symbol}</span>
       </div>
-      <p>{priceChange1d}</p>
-      <p>{price > 1 ? price.toFixed(2) : price.toFixed(6)}</p>
-      <p>{priceBtc.toFixed(8)}</p>
-      <p>{formatter(marketCap, 1)}</p>
-      <p>{formatter(volume, 1)}</p>
-      <p>price graph (7d)</p>
+      <p className={styles.changeCol + " " + changeColor}>{priceChange1d}%</p>
+      <p className={styles.priceCol}>
+        ${price > 1 ? price.toFixed(2) : price.toFixed(6)}
+      </p>
+      <p className={styles.pbtcCol}>{priceBtc.toFixed(8)}</p>
+      <p className={styles.mcapCol}>${formatter(marketCap, 1)}</p>
+      <p className={styles.volCol}>${formatter(volume, 1)}</p>
     </div>
   );
 };
