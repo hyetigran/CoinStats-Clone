@@ -38,7 +38,6 @@ const TableRow = (props) => {
     localStorage.setItem("coins", JSON.stringify(storedCoins));
     setIsFav(!isFav);
   };
-  console.log(id, isFav);
 
   return (
     <div

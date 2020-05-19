@@ -4,8 +4,10 @@ import fetcher from "../../util/fetcher";
 import useOnScreen from "../../util/useOnScreen";
 import TableHeading from "./TableHeading";
 import TableRow from "./TableRow";
+import { filterFavorites } from "../../util/filterFavorites";
 
 const PriceTable = (props) => {
+  console.log("outer", props);
   const { pages, loadMore } = useSWRPages(
     "cryptocurrency-list",
     ({ offset, withSWR }) => {
@@ -18,6 +20,12 @@ const PriceTable = (props) => {
       if (!data) return null;
 
       const { coins } = data;
+      if (props.url === "/favorites") {
+        let favCoins = filterFavorites(coins);
+        return favCoins.map((coin) => {
+          return <TableRow key={coin.id} coin={coin} />;
+        });
+      }
 
       return coins.map((coin) => {
         return <TableRow key={coin.id} coin={coin} />;
