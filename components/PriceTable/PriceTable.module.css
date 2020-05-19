@@ -84,3 +84,9 @@
 .clrUp {
   color: #35c858;
 }
+
+#darkmode {
+  color: #ffffff;
+  flex: 0.5;
+  margin: auto;
+}

@@ -38,6 +38,7 @@ const PriceTable = (props) => {
     if (!infiniteScrollEnabled || !isOnScreen) return;
     loadMore();
   }, [infiniteScrollEnabled, isOnScreen]);
+
   return (
     <div>
       <TableHeading />

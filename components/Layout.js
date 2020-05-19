@@ -25,6 +25,10 @@ const Layout = (props) => {
           color: #8e8c8c;
         }
       `}</style>
+      <script
+        src="https://kit.fontawesome.com/338f4d05a0.js"
+        crossorigin="anonymous"
+      ></script>
     </div>
   );
 };
