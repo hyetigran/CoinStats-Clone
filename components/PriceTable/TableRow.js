@@ -1,5 +1,7 @@
 import styles from "./PriceTable.module.css";
 import { nFormatter as formatter } from "../../util/formatter";
+// import fetcher from "../lib/fetcher";
+import useSWR from "swr";
 
 const TableRow = (props) => {
   const {
@@ -14,7 +16,7 @@ const TableRow = (props) => {
     marketCap,
     volume,
   } = props.coin;
-  console.log(typeof priceChange1d);
+
   let changeColor = priceChange1d < 1 ? styles.clrDown : styles.clrUp;
   return (
     <div className={styles.tableRow}>
