@@ -2,12 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import useSWR, { useSWRPages } from "swr";
 import fetcher from "../../util/fetcher";
 import useOnScreen from "../../util/useOnScreen";
-import styles from "./PriceTable.module.css";
 import TableHeading from "./TableHeading";
 import TableRow from "./TableRow";
 
 const PriceTable = (props) => {
-  const { pages, isLoadingMore, loadMore, pageSWRs, pageCount } = useSWRPages(
+  const { pages, loadMore } = useSWRPages(
     "cryptocurrency-list",
     ({ offset, withSWR }) => {
       const { data } = withSWR(
