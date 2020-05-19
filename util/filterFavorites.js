@@ -1,11 +1,8 @@
 export const filterFavorites = (coins) => {
   //retrieve favorite coins from local storage
-  let savedCoinsArray = JSON.parse(localStorage.getItem("coins"));
-  //convert to object for faster lookup
-  let coinsObject = savedCoinsArray.reduce((acc, cur) => {
-    acc[cur] = 1;
-    return acc;
-  }, {});
+  let savedCoinsObject = JSON.parse(localStorage.getItem("coins"));
 
-  return coins.filter((element) => coinsObject.hasOwnProperty(element.name));
+  return coins.filter((element) =>
+    savedCoinsObject.hasOwnProperty(element.name)
+  );
 };

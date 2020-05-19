@@ -7,7 +7,6 @@ import TableRow from "./TableRow";
 import { filterFavorites } from "../../util/filterFavorites";
 
 const PriceTable = (props) => {
-  console.log("outer", props);
   const { pages, loadMore } = useSWRPages(
     "cryptocurrency-list",
     ({ offset, withSWR }) => {
@@ -20,6 +19,8 @@ const PriceTable = (props) => {
       if (!data) return null;
 
       const { coins } = data;
+      console.log("inner", props);
+
       if (props.url === "/favorites") {
         let favCoins = filterFavorites(coins);
         return favCoins.map((coin) => {

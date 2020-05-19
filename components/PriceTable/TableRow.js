@@ -26,13 +26,13 @@ const TableRow = (props) => {
   };
   const favHandleChange = () => {
     //getting coins from local storage or empty array
-    var storedCoins = JSON.parse(localStorage.getItem("coins")) || [];
+    var storedCoins = JSON.parse(localStorage.getItem("coins")) || {};
     if (!isFav) {
       //adding id of coin to stored coins
-      storedCoins = [...storedCoins, id];
+      storedCoins[id] = 1;
     } else {
       //remove coin from local storage
-      storedCoins = storedCoins.filter((el) => el !== id);
+      delete storedCoins[id];
     }
     //saving updated stored coins to local storage
     localStorage.setItem("coins", JSON.stringify(storedCoins));
