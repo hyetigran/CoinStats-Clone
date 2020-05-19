@@ -25,7 +25,7 @@ const TableRow = (props) => {
     margin: "auto",
   };
   const favHandleChange = () => {
-    //getting coins from local storage or empy array
+    //getting coins from local storage or empty array
     var storedCoins = JSON.parse(localStorage.getItem("coins")) || [];
     if (!isFav) {
       //adding id of coin to stored coins

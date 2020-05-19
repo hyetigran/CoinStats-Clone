@@ -4,7 +4,7 @@ import PriceTable from "../components/PriceTable/PriceTable";
 import Controls from "../components/PriceTable/Controls";
 import styles from "./Index.module.css";
 
-const LivePrices = (props) => {
+const Favorites = (props) => {
   return (
     <Layout>
       <div className={styles.container}>
@@ -16,4 +16,4 @@ const LivePrices = (props) => {
   );
 };
 
-export default LivePrices;
+export default Favorites;
