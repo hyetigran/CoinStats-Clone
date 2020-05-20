@@ -23,11 +23,6 @@ const Navbar = () => {
             <a>Portfolio</a>
           </Link>
         </li>
-        <li>
-          <Link href="/details/[id]" as="/details/bitcoin">
-            <a>Details</a>
-          </Link>
-        </li>
       </ul>
     </header>
   );
