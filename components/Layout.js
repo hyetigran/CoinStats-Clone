@@ -15,7 +15,7 @@ const Layout = (props) => {
           padding: 0;
           height: 100vh;
         }
-        body #_next {
+        body #__next {
           height: 100%;
         }
         h1,
@@ -31,7 +31,7 @@ const Layout = (props) => {
       `}</style>
       <script
         src="https://kit.fontawesome.com/338f4d05a0.js"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       ></script>
     </div>
   );

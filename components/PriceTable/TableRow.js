@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./PriceTable.module.css";
 import { nFormatter as formatter } from "../../util/formatter";
+import Link from "next/link";
 
 const TableRow = (props) => {
   const {

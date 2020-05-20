@@ -10,7 +10,10 @@ export const fetchFavorites = (link) => {
       `https://api.coinstats.app/public/v1/coins/${prop}?currency=USD`,
       fetcher
     );
-    coins.push(data.coin);
+    // console.log(data.coin);
+    if (data !== undefined && data.coin) {
+      coins.push(data.coin);
+    }
   }
   //sort data by rank
   coins.sort((a, b) => a.rank - b.rank);

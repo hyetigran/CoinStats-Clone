@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import useSWR, { useSWRPages } from "swr";
 import fetcher from "../../util/fetcher";
 import useOnScreen from "../../util/useOnScreen";
