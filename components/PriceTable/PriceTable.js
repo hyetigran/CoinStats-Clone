@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import useSWR, { useSWRPages } from "swr";
 import fetcher from "../../util/fetcher";
 import useOnScreen from "../../util/useOnScreen";
 import TableHeading from "./TableHeading";
 import TableRow from "./TableRow";
 import { filterFavorites } from "../../util/filterFavorites";
-import { fetchFavorites } from "../../util/fetchFavorites";
 import Empty from "../Empty";
 
 const PriceTable = (props) => {
@@ -43,15 +41,13 @@ const PriceTable = (props) => {
     loadMore();
   }, [infiniteScrollEnabled, isOnScreen]);
 
-  let coins = fetchFavorites(props.url);
-
   return (
     <div>
       <TableHeading />
       {props.url !== "/favorites" ? (
         pages
-      ) : coins.length ? (
-        coins.map((coin) => {
+      ) : props.favCoin.length ? (
+        props.favCoin.map((coin) => {
           return <TableRow key={coin.id} coin={coin} url={props.url} />;
         })
       ) : (
