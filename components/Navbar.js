@@ -15,12 +15,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/news">
+          <Link href="/News">
             <a>News</a>
           </Link>
         </li>
         <li>
-          <Link href="/portfolio">
+          <Link href="/Portfolio">
             <a>Portfolio</a>
           </Link>
         </li>
