@@ -24,6 +24,7 @@ const TableRow = (props) => {
     color: "#ffffff",
     flex: 0.5,
     margin: "auto",
+    zIndex: "10",
   };
   const favHandleChange = () => {
     //getting coins from local storage or empty array
