@@ -46,6 +46,7 @@ const TableRow = (props) => {
       onMouseEnter={() => setIsHovered(!isHovered)}
       onMouseLeave={() => setIsHovered(!isHovered)}
     >
+      <a href={props.href}></a>
       {!isHovered ? (
         <p className={styles.rankCol}>{rank}</p>
       ) : props.url !== "/favorites" ? (

@@ -6,6 +6,7 @@ import TableHeading from "./TableHeading";
 import TableRow from "./TableRow";
 import { filterFavorites } from "../../util/filterFavorites";
 import Empty from "../Empty";
+import Link from "next/link";
 
 const PriceTable = (props) => {
   const { pages, loadMore } = useSWRPages(
@@ -22,7 +23,12 @@ const PriceTable = (props) => {
 
       const { coins } = data;
       return coins.map((coin) => {
-        return <TableRow key={coin.id} coin={coin} />;
+        let { id } = coin;
+        return (
+          <Link href="/details/[id]" as={`/details/${id}`} passHref>
+            <TableRow key={coin.id} coin={coin} href={props.href} />
+          </Link>
+        );
       });
     },
     (SWR) => {
