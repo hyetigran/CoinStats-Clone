@@ -13,6 +13,10 @@ const Layout = (props) => {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
+          height: 100vh;
+        }
+        body #_next {
+          height: 100%;
         }
         h1,
         h2,

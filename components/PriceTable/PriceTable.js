@@ -5,11 +5,14 @@ import useOnScreen from "../../util/useOnScreen";
 import TableHeading from "./TableHeading";
 import TableRow from "./TableRow";
 import { filterFavorites } from "../../util/filterFavorites";
+import { fetchFavorites } from "../../util/fetchFavorites";
+import Empty from "../Empty";
 
 const PriceTable = (props) => {
   const { pages, loadMore } = useSWRPages(
     "cryptocurrency-list",
     ({ offset, withSWR }) => {
+      if (props.url === "/favorites") return;
       const { data } = withSWR(
         useSWR(
           `https://api.coinstats.app/public/v1/coins?skip=${offset}&limit=10&currency=USD`,
@@ -19,15 +22,6 @@ const PriceTable = (props) => {
       if (!data) return null;
 
       const { coins } = data;
-      console.log("inner", props);
-
-      if (props.url === "/favorites") {
-        let favCoins = filterFavorites(coins);
-        return favCoins.map((coin) => {
-          return <TableRow key={coin.id} coin={coin} />;
-        });
-      }
-
       return coins.map((coin) => {
         return <TableRow key={coin.id} coin={coin} />;
       });
@@ -48,10 +42,20 @@ const PriceTable = (props) => {
     loadMore();
   }, [infiniteScrollEnabled, isOnScreen]);
 
+  let coins = fetchFavorites(props.url);
+
   return (
     <div>
       <TableHeading />
-      {pages}
+      {props.url !== "/favorites" ? (
+        pages
+      ) : coins.length ? (
+        coins.map((coin) => {
+          return <TableRow key={coin.id} coin={coin} />;
+        })
+      ) : (
+        <Empty />
+      )}
       <footer
         ref={$loadMoreButton}
         onClick={() => {
