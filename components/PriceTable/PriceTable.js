@@ -23,12 +23,11 @@ const PriceTable = (props) => {
 
       const { coins } = data;
       return coins.map((coin) => {
-        let { id } = coin;
         return (
           <Link
             key={coin.id}
             href="/details/[id]"
-            as={`/details/${id}`}
+            as={`/details/${coin.id}`}
             passHref
           >
             <TableRow coin={coin} href={props.href} />
@@ -63,7 +62,7 @@ const PriceTable = (props) => {
             <Link
               key={coin.id}
               href="/details/[id]"
-              as={`/details/${id}`}
+              as={`/details/${coin.id}`}
               passHref
             >
               <TableRow coin={coin} url={props.url} />
