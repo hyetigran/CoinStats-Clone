@@ -1,8 +1,12 @@
 import Link from "next/link";
+import styles from "./Layout.module.css";
 
 const Navbar = () => {
   return (
-    <div>
+    <header className={styles.navBar}>
+      <div className={styles.logoContainer}>
+        <img src="/static/logo.png" />
+      </div>
       <ul>
         <li>
           <Link href="/">
@@ -25,7 +29,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </header>
   );
 };
 

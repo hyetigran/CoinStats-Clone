@@ -4,3 +4,26 @@
   flex-direction: column;
   min-height: 100%;
 }
+
+.navBar {
+  display: flex;
+  margin: 0% auto;
+}
+.logoContainer {
+  flex: 1;
+}
+.logoContainer img {
+  width: 50%;
+}
+
+.navBar ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  flex: 2;
+}
+
+.navBar ul li a {
+  text-decoration: none;
+  color: white;
+}
