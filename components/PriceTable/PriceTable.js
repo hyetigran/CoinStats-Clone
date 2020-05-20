@@ -15,7 +15,7 @@ const PriceTable = (props) => {
       if (props.url === "/favorites") return;
       const { data } = withSWR(
         useSWR(
-          `https://api.coinstats.app/public/v1/coins?skip=${offset}&limit=10&currency=USD`,
+          `https://api.coinstats.app/public/v1/coins?skip=${offset}&limit=15&currency=USD`,
           fetcher
         )
       );
