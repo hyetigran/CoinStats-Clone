@@ -1,21 +1,61 @@
-.mainContainer {
+.detailContainer {
   display: flex;
-  flex: 1;
+  margin: auto;
+  max-width: 90%;
+  width: 90%;
+  height: auto;
+  justify-content: space-around;
+  border: 1px solid #8e8c8c;
+  border-radius: 5px;
+  padding: 5px 0;
 }
 
 .icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.icons img {
+  height: 30px;
+  padding: 10px;
+}
+.icons i:hover {
+  cursor: pointer;
 }
 
-.primaryStats {
+.primaryStats div {
+  display: flex;
+  justify-content: space-between;
+}
+.primaryStats div *:first-child {
+  margin-right: 5%;
+}
+.primaryStats p span {
+  padding: 0 5px;
+  border-radius: 5px;
+  background-color: #ffa859;
+  color: #1c1c1c;
+  margin-left: 3%;
 }
 
-.marketCol {
-}
-
-.supplyCol {
+.title {
+  text-transform: uppercase;
+  color: #979797;
 }
 
 .websiteCol {
+  display: flex;
+  flex-direction: column;
 }
-.explorerCol {
+.websiteCol a {
+  margin: 15% 0;
+  text-decoration: none;
+  color: white;
+}
+
+.clrDown {
+  color: #ff3a31;
+}
+.clrUp {
+  color: #35c858;
 }

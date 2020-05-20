@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import fetcher from "../../../util/fetcher";
 import styles from "./index.module.css";
 import Layout from "../../../components/Layout";
-
+import { nFormatter as formatter } from "../../../util/formatter";
 export default function Details({ coin }) {
   const {
     name,
@@ -29,8 +29,9 @@ export default function Details({ coin }) {
 
   const iconStyle = {
     color: "#ffffff",
-    flex: 0.5,
+    flex: 1,
     margin: "auto",
+    textAlign: "center",
   };
   const favHandleChange = () => {
     //getting coins from local storage or empty array
@@ -46,12 +47,15 @@ export default function Details({ coin }) {
     localStorage.setItem("coins", JSON.stringify(storedCoins));
     setIsFav(!isFav);
   };
+  let change1d = priceChange1d < 1 ? styles.clrDown : styles.clrUp;
+  let change1h = priceChange1h < 1 ? styles.clrDown : styles.clrUp;
+
   return (
     <Layout>
       <section className={styles.detailContainer}>
-        <div>
-          <div className={styles.icons}>
-            <img src={icon} />
+        <div className={styles.icons}>
+          <img src={icon} />
+          <div style={{ margin: "0 auto" }}>
             {isFav ? (
               <i
                 style={iconStyle}
@@ -66,48 +70,48 @@ export default function Details({ coin }) {
               ></i>
             )}
           </div>
-          <div className={styles.primaryStats}>
-            <p>
-              {name} ({symbol}) <span>{rank}</span>
-            </p>
-            <div>
-              <h2>{price}</h2>
-              <p>{priceChange1d}</p>
-            </div>
-            <div>
-              <p>฿{priceBtc}</p>
-              <p>{priceChange1h}</p>
-            </div>
+        </div>
+        <div className={styles.primaryStats}>
+          <p>
+            {name} ({symbol}) <span>{rank}</span>
+          </p>
+          <div>
+            <h2>${price > 1 ? price.toFixed(2) : price.toFixed(6)}</h2>
+            <p className={change1d}>{priceChange1d}</p>
           </div>
-          <div className={styles.marketCol}>
-            <div>
-              <p>market cap</p>
-              <p>{marketCap}</p>
-            </div>
-            <div>
-              <p>volume 24h</p>
-              <p>{volume}</p>
-            </div>
+          <div>
+            <p>฿{priceBtc.toFixed(8)}</p>
+            <p className={change1h}>{priceChange1h}</p>
           </div>
-          <div className={styles.supplyCol}>
-            <div>
-              <p>available supply</p>
-              <p>{availableSupply}</p>
-            </div>
-            <div>
-              <p>total supply</p>
-              <p>{totalSupply}</p>
-            </div>
+        </div>
+        <div className={styles.marketCol}>
+          <div>
+            <p className={styles.title}>market cap</p>
+            <p>${formatter(marketCap, 1)}</p>
           </div>
-          <div className={styles.websiteCol}>
-            <a href={websiteUrl}>Website</a>
-            <a href={twitterUrl}>Twitter</a>
+          <div>
+            <p className={styles.title}>volume 24h</p>
+            <p>${formatter(volume, 1)}</p>
           </div>
-          <div className={styles.explorerCol}>
-            {exp.map((el, i) => {
-              return <a href={el}>{`Explorer ${i + 1}`}</a>;
-            })}
+        </div>
+        <div className={styles.supplyCol}>
+          <div>
+            <p className={styles.title}>available supply</p>
+            <p>{formatter(availableSupply, 1)}</p>
           </div>
+          <div>
+            <p className={styles.title}>total supply</p>
+            <p>{formatter(totalSupply, 1)}</p>
+          </div>
+        </div>
+        <div className={styles.websiteCol}>
+          <a href={websiteUrl}>Website</a>
+          <a href={twitterUrl}>Twitter</a>
+        </div>
+        <div className={styles.websiteCol}>
+          {exp.map((el, i) => {
+            return <a href={el}>{`Explorer ${i + 1}`}</a>;
+          })}
         </div>
       </section>
     </Layout>
