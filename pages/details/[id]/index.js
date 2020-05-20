@@ -23,7 +23,7 @@ export default function Details({ coin }) {
     exp,
   } = coin;
   const [isFav, setIsFav] = useState(false);
-  console.log(coin);
+
   const router = useRouter();
   const { id } = router.query;
 
