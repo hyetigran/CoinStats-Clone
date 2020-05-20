@@ -25,8 +25,13 @@ const PriceTable = (props) => {
       return coins.map((coin) => {
         let { id } = coin;
         return (
-          <Link href="/details/[id]" as={`/details/${id}`} passHref>
-            <TableRow key={coin.id} coin={coin} href={props.href} />
+          <Link
+            key={coin.id}
+            href="/details/[id]"
+            as={`/details/${id}`}
+            passHref
+          >
+            <TableRow coin={coin} href={props.href} />
           </Link>
         );
       });
@@ -54,7 +59,16 @@ const PriceTable = (props) => {
         pages
       ) : props.favCoin.length ? (
         props.favCoin.map((coin) => {
-          return <TableRow key={coin.id} coin={coin} url={props.url} />;
+          return (
+            <Link
+              key={coin.id}
+              href="/details/[id]"
+              as={`/details/${id}`}
+              passHref
+            >
+              <TableRow coin={coin} url={props.url} />
+            </Link>
+          );
         })
       ) : (
         <Empty />

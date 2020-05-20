@@ -7,6 +7,7 @@ const Navbar = () => {
       <div className={styles.logoContainer}>
         <img src="/static/logo.png" />
       </div>
+      <div style={{ flex: 1 }}></div>
       <ul>
         <li>
           <Link href="/">
