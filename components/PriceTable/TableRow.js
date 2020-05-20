@@ -47,18 +47,22 @@ const TableRow = (props) => {
     >
       {!isHovered ? (
         <p className={styles.rankCol}>{rank}</p>
-      ) : isFav ? (
-        <i
-          style={iconStyle}
-          className="fas fa-star"
-          onClick={() => favHandleChange()}
-        ></i>
+      ) : props.url !== "/favorites" ? (
+        isFav ? (
+          <i
+            style={iconStyle}
+            className="fas fa-star"
+            onClick={() => favHandleChange()}
+          ></i>
+        ) : (
+          <i
+            style={iconStyle}
+            className="far fa-star"
+            onClick={() => favHandleChange()}
+          ></i>
+        )
       ) : (
-        <i
-          style={iconStyle}
-          className="far fa-star"
-          onClick={() => favHandleChange()}
-        ></i>
+        <p className={styles.rankCol}>{rank}</p>
       )}
       <div className={styles.nameCol}>
         <div className={styles.icon}>

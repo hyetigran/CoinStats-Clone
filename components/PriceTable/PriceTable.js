@@ -51,7 +51,7 @@ const PriceTable = (props) => {
         pages
       ) : coins.length ? (
         coins.map((coin) => {
-          return <TableRow key={coin.id} coin={coin} />;
+          return <TableRow key={coin.id} coin={coin} url={props.url} />;
         })
       ) : (
         <Empty />
